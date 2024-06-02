@@ -17,7 +17,7 @@ let keywords =
         "puts"
     |]
 
-let splitIntoTokens (line : string) : string array =
+let splitIntoWords (line : string) : string array =
     line.Split(" ")
 
 let findKeywords (line : string) : string array =
