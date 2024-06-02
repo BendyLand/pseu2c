@@ -1,5 +1,7 @@
 # pseu2c
 
+*`pseu2c` is currently in early stages of development and is non-functional*
+
 This is a transpiler tool which takes pseudocode-like syntax and generates roughly equivalent C code. 
 
 This is a basic tool which can handle the fundamental constructs of programming; variable declaration, conditionals, and loops. 
