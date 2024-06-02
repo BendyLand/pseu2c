@@ -1,0 +1,47 @@
+num is 42
+num2 is 3.14
+line is an example of a string
+text is 25 as str
+text2 is 26 as char ptr
+
+if num > 10
+// do something
+else num > 0
+// do something different
+else
+// do a third thing
+end
+// Notice that there is no "else if".
+// The possible options are:
+//    `if <condition>`
+//    `else <condition>`
+//    `else\n`
+//    `end`
+// The code to be placed inside each conditional block will be separated by newlines.
+// In short, whitespace does not matter, but newlines do.
+
+loop i; 0 to 10
+// do something 11 times
+end
+
+loop j; 10 downTo 1 by -3
+// do something 4 times
+end
+
+loop num is 0; while num <= 10
+// this one includes an increment by default
+end
+
+loop num is 0; until num > 10
+// this is the inverse of the last one
+end
+
+loop _ ; while <condition>
+// this one doesn't include an increment;
+// it relies on the existing condition parameters.
+// (e.g. variables need to be initialized).
+end
+
+loop _
+// purposeful infinite loop
+end

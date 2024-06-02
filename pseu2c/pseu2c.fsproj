@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Keywords.fs" />
+    <Compile Include="Tokens.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
