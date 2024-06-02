@@ -27,3 +27,4 @@
 /Users/benlandrette/ccode/bendyland/pseu2c-tool/pseu2c/obj/Debug/net8.0/pseu2c.pdb
 /Users/benlandrette/ccode/bendyland/pseu2c-tool/pseu2c/obj/Debug/net8.0/pseu2c.genruntimeconfig.cache
 /Users/benlandrette/ccode/bendyland/pseu2c-tool/pseu2c/obj/Debug/net8.0/ref/pseu2c.dll
+/Users/benlandrette/ccode/bendyland/pseu2c-tool/pseu2c/obj/Debug/net8.0/pseu2c.sourcelink.json
