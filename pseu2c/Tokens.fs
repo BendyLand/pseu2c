@@ -23,7 +23,8 @@ type Tokens =
     | BY
     | PRINT
     | PUTS
-    | UNDEF
+    | COMMENT
+    | T of string
 
 
 let convertKeywordsToTokens words = 
@@ -42,5 +43,6 @@ let convertKeywordsToTokens words =
         | "by" -> BY 
         | "print" -> PRINT 
         | "puts" -> PUTS
-        | _ -> UNDEF
+        | "//" -> COMMENT
+        | _ -> T(word)
     ) words 
