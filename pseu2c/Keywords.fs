@@ -17,10 +17,10 @@ let keywords =
         "puts"
     |]
 
-let splitIntoWords (line : string) : string array =
+let splitIntoWords (line: string): string array =
     line.Split(" ")
 
-let findKeywords (line : string) : string array =
+let findKeywords (line: string): string array =
     let words = line.Split(" ")
     words
     |> Array.filter (fun word ->

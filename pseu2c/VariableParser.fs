@@ -8,20 +8,23 @@ let hasImplicitType line =
 
 let extractExplicitType line = 
     let idx = Array.findIndex (fun x -> x = AS) line
-    let varType = line[idx+1..] |> Array.map getValFromToken |> String.concat " " 
+    let varType = 
+        line[idx+1..] 
+        |> Array.map getValFromToken 
+        |> String.concat " " 
     match varType.ToLower() with
-    | "int" -> INT
+    | "int"    -> INT
     | "double" -> DOUBLE
-    | "bool" -> BOOL
-    | "char" -> CHAR
-    | _ -> STRING
+    | "bool"   -> BOOL
+    | "char"   -> CHAR
+    | _        -> STRING
 
 let inferType (value: string): Types = 
-    let numericOnly = Regex "[0-9]+"
+    let numericOnly    = Regex "[0-9]+"
     let numWithDecimal = Regex "[0-9]*\\.[0-9]+"
-    let bool = Regex "true|false"
-    let stringChars = Regex "..+"
-    let singleChar = Regex "^.?$"
+    let bool           = Regex "true|false"
+    let stringChars    = Regex "..+"
+    let singleChar     = Regex "^.?$"
     match value with
     | _ when numWithDecimal.IsMatch(value) -> DOUBLE
     | _ when numericOnly.IsMatch(value)    -> INT
@@ -36,14 +39,26 @@ let extractVarName line =
     result
 
 let extractImplicitVariable (line: Tokens array) =
-    let temp = line |> Array.tail |> Array.tail
-    let result = temp |> Array.map getValFromToken |> String.concat " "
+    let temp = 
+        line 
+        |> Array.tail 
+        |> Array.tail
+    let result = 
+        temp 
+        |> Array.map getValFromToken 
+        |> String.concat " "
     result
 
 let extractExplicitVariable line = 
-    let temp = line |> Array.tail |> Array.tail
+    let temp = 
+        line 
+        |> Array.tail 
+        |> Array.tail
     let idx = Array.findIndex (fun c -> c = AS) temp
-    let varVal = temp[..idx-1] |> Array.map getValFromToken |> String.concat " "
+    let varVal = 
+        temp[..idx-1] 
+        |> Array.map getValFromToken 
+        |> String.concat " "
     varVal
 
 let extractVariable line = 
@@ -63,7 +78,7 @@ let convertVarLinesToTokens lines =
             let varValueToken = VALUE(VAL(varValue))
             let mutable varType: Tokens = IS
             if hasImplicitType line then
-                varType <- TYPE(CTYPE(inferType varValue)) // not finished for explicit
+                varType <- TYPE(CTYPE(inferType varValue)) 
             else
                 varType <- TYPE(CTYPE(extractExplicitType line))
             [|VAR(varName); varType; varValueToken|]
