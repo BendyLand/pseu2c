@@ -26,7 +26,7 @@ Certain keywords will trigger certain corresponding C constructs. These keywords
  - **Loops**:
     - `loop`
     - `to`
-    - `downTo`
+    - `downto`
     - `while`
     - `until`
     - `by`
@@ -106,7 +106,7 @@ loop i; 0 to 10
 // do something 11 times
 end
 
-loop j; 10 downTo 1 by -3
+loop j; 10 downto 1 by -3
 // do something 4 times
 end
 ```

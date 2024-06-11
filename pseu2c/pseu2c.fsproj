@@ -8,6 +8,7 @@
   <ItemGroup>
     <Compile Include="Keywords.fs" />
     <Compile Include="Tokens.fs" />
+    <Compile Include="VariableParser.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

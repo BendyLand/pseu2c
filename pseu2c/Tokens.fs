@@ -1,17 +1,21 @@
 module Tokens
 
-type Types = 
-    | INT 
+type Types =
+    | INT
     | DOUBLE
     | BOOL
-    | CHAR 
+    | CHAR
     | STRING
+    | NULL
 
-type Tokens = 
-    | ID of string 
-    | VALUE of Types
+type VarTokens =
+    | NAME of string
+    | CTYPE of Types
+    | VAL of string
+
+type Tokens =
     | IS
-    | AS 
+    | AS
     | IF
     | ELSE
     | END
@@ -25,24 +29,44 @@ type Tokens =
     | PUTS
     | COMMENT
     | T of string
+    | VAR of VarTokens
+    | VALUE of VarTokens
+    | TYPE of VarTokens
 
+let assignVarTypeToken token =
+    match token with
+    | "int" -> INT
+    | "double" -> DOUBLE
+    | "bool" -> BOOL
+    | "char" -> CHAR
+    | "string" -> STRING
+    | _ -> NULL
 
-let convertKeywordsToTokens words = 
-    Array.map (fun word -> 
+let getValFromToken token =
+    let opt =
+        match token with
+        | T value -> Some value
+        | _ -> None
+    match opt with
+    | Some res -> res
+    | None -> ""
+
+let convertKeywordsToTokens words =
+    Array.map (fun word ->
         match word with
         | "is" -> IS
         | "as" -> AS
         | "if" -> IF
         | "else" -> ELSE
         | "end" -> END
-        | "loop" -> LOOP 
-        | "to" -> TO 
-        | "downto" -> DOWNTO 
-        | "while" -> WHILE 
-        | "until" -> UNTIL 
-        | "by" -> BY 
-        | "print" -> PRINT 
+        | "loop" -> LOOP
+        | "to" -> TO
+        | "downto" -> DOWNTO
+        | "while" -> WHILE
+        | "until" -> UNTIL
+        | "by" -> BY
+        | "print" -> PRINT
         | "puts" -> PUTS
         | "//" -> COMMENT
         | _ -> T(word)
-    ) words 
+    ) words
