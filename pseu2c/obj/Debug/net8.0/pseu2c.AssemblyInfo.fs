@@ -10,7 +10,7 @@ open System.Reflection
 [<assembly: System.Reflection.AssemblyCompanyAttribute("pseu2c")>]
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
-[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+59ec6d5a6e5487999fb85c7a5e4fd22a6ec03e8a")>]
+[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7187935f810178cf2bc59f74723d93290c814628")>]
 [<assembly: System.Reflection.AssemblyProductAttribute("pseu2c")>]
 [<assembly: System.Reflection.AssemblyTitleAttribute("pseu2c")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]

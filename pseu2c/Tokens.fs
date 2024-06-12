@@ -1,5 +1,8 @@
 module Tokens
 
+/// <summary>Types to correspond to their eventual C types. 
+/// 'Strings' will translate to either a char* or char[], 
+/// depending on the context it is coming from.</summary>
 type Types =
     | INT
     | DOUBLE
@@ -8,11 +11,13 @@ type Types =
     | STRING
     | NULL
 
+/// <summary>The pieces that make up a variable declaration.</summary>
 type VarTokens =
     | NAME of string
     | CTYPE of Types
     | VAL of string
 
+/// <summary>The general tokens which will make up the intermediate representation of the data.</summary> 
 type Tokens =
     | IS
     | AS
@@ -33,15 +38,9 @@ type Tokens =
     | VALUE of VarTokens
     | TYPE of VarTokens
 
-let assignVarTypeToken token =
-    match token with
-    | "int" -> INT
-    | "double" -> DOUBLE
-    | "bool" -> BOOL
-    | "char" -> CHAR
-    | "string" -> STRING
-    | _ -> NULL
-
+/// <summary>Extracts the value contained inside of a given token.</summary>
+/// <param name="token">The token to get the value from.</param>
+/// <returns>The internal value of the original token, or None.</returns>
 let getValFromToken token =
     let opt =
         match token with
@@ -51,22 +50,3 @@ let getValFromToken token =
     | Some res -> res
     | None -> ""
 
-let convertKeywordsToTokens words =
-    Array.map (fun word ->
-        match word with
-        | "is" -> IS
-        | "as" -> AS
-        | "if" -> IF
-        | "else" -> ELSE
-        | "end" -> END
-        | "loop" -> LOOP
-        | "to" -> TO
-        | "downto" -> DOWNTO
-        | "while" -> WHILE
-        | "until" -> UNTIL
-        | "by" -> BY
-        | "print" -> PRINT
-        | "puts" -> PUTS
-        | "//" -> COMMENT
-        | _ -> T(word)
-    ) words
